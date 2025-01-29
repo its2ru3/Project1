@@ -46,7 +46,6 @@ def truthtable(terms, n, t, initial_state, ivs, np):
     # filling input variables value
     tmp = 0
     for j in ivs:
-
         x[j] = initial_state[tmp]
         tmp += 1
     for i in range(x_range):
