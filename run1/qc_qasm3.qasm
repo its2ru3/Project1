@@ -8486,3 +8486,765 @@ barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6], q[7], q[8], q[9], q[10], q[11]
 h q[12];
 barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6], q[7], q[8], q[9], q[10], q[11], q[12], q[13], q[14], q[15], q[16], q[17], q[18], q[19], q[20], q[21], q[22], q[23], q[24], q[25], q[26], q[27];
 
+
+
+// Circuit: n=3, h=3, d=3, g=6
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[3] q;
+h q[1];
+barrier q[0], q[1], q[2];
+h q[0];
+barrier q[0], q[1], q[2];
+h q[1];
+barrier q[0], q[1], q[2];
+
+
+// Circuit: n=3, h=3, d=3, g=6
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[3] q;
+h q[2];
+barrier q[0], q[1], q[2];
+h q[2];
+barrier q[0], q[1], q[2];
+h q[1];
+barrier q[0], q[1], q[2];
+
+
+// Circuit: n=3, h=3, d=3, g=6
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[3] q;
+h q[2];
+barrier q[0], q[1], q[2];
+h q[1];
+barrier q[0], q[1], q[2];
+h q[1];
+barrier q[0], q[1], q[2];
+
+
+// Circuit: n=3, h=3, d=3, g=6
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[3] q;
+h q[2];
+barrier q[0], q[1], q[2];
+h q[1];
+barrier q[0], q[1], q[2];
+h q[1];
+barrier q[0], q[1], q[2];
+
+
+// Circuit: n=6, h=3, d=3, g=8
+OPENQASM 3.0;
+include "stdgates.inc";
+gate ccz _gate_q_0, _gate_q_1, _gate_q_2 {
+  h _gate_q_2;
+  ccx _gate_q_0, _gate_q_1, _gate_q_2;
+  h _gate_q_2;
+}
+qubit[6] q;
+ccz q[2], q[0], q[3];
+h q[4];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[2];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+cz q[2], q[5];
+h q[1];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+
+
+// Circuit: n=6, h=3, d=3, g=7
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[6] q;
+h q[0];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[0];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+z q[0];
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+
+
+// Circuit: n=6, h=3, d=3, g=7
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[6] q;
+cz q[0], q[2];
+h q[1];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[2];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+
+
+// Circuit: n=6, h=3, d=3, g=8
+OPENQASM 3.0;
+include "stdgates.inc";
+gate ccz _gate_q_0, _gate_q_1, _gate_q_2 {
+  h _gate_q_2;
+  ccx _gate_q_0, _gate_q_1, _gate_q_2;
+  h _gate_q_2;
+}
+qubit[6] q;
+h q[1];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+ccz q[1], q[3], q[4];
+h q[0];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+cz q[5], q[2];
+h q[4];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+
+
+// Circuit: n=6, h=3, d=4, g=9
+OPENQASM 3.0;
+include "stdgates.inc";
+gate ccz _gate_q_0, _gate_q_1, _gate_q_2 {
+  h _gate_q_2;
+  ccx _gate_q_0, _gate_q_1, _gate_q_2;
+  h _gate_q_2;
+}
+qubit[6] q;
+h q[2];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+ccz q[2], q[1], q[5];
+ccz q[4], q[3], q[1];
+h q[0];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+cz q[4], q[3];
+h q[1];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+
+
+// Circuit: n=6, h=0, d=0, g=0
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[6] q;
+
+
+// Circuit: n=6, h=0, d=0, g=0
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[6] q;
+
+
+// Circuit: n=6, h=0, d=0, g=0
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[6] q;
+
+
+// Circuit: n=6, h=0, d=0, g=0
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[6] q;
+
+
+// Circuit: n=6, h=0, d=0, g=0
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[6] q;
+
+
+// Circuit: n=6, h=0, d=0, g=0
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[6] q;
+
+
+// Circuit: n=6, h=0, d=0, g=0
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[6] q;
+
+
+// Circuit: n=6, h=0, d=0, g=0
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[6] q;
+
+
+// Circuit: n=6, h=0, d=0, g=0
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[6] q;
+
+
+// Circuit: n=6, h=6, d=6, g=13
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[6] q;
+h q[2];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[2];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[4];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[2];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+z q[1];
+h q[2];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+
+
+// Circuit: n=6, h=6, d=7, g=14
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[6] q;
+h q[3];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[4];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+cz q[0], q[1];
+h q[0];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+z q[5];
+h q[4];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+
+
+// Circuit: n=6, h=6, d=6, g=13
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[6] q;
+h q[1];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[3];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+z q[4];
+h q[2];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[0];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[0];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[1];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+
+
+// Circuit: n=6, h=6, d=8, g=17
+OPENQASM 3.0;
+include "stdgates.inc";
+gate ccz _gate_q_0, _gate_q_1, _gate_q_2 {
+  h _gate_q_2;
+  ccx _gate_q_0, _gate_q_1, _gate_q_2;
+  h _gate_q_2;
+}
+qubit[6] q;
+h q[0];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+cz q[3], q[5];
+h q[3];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[0];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+ccz q[1], q[5], q[4];
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+z q[0];
+z q[3];
+z q[4];
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[3];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+
+
+// Circuit: n=6, h=6, d=6, g=14
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[6] q;
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+cz q[0], q[3];
+h q[4];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+z q[2];
+h q[1];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[4];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[1];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+
+
+// Circuit: n=6, h=6, d=6, g=12
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[6] q;
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[1];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[3];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[0];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[3];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[3];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+
+
+// Circuit: n=6, h=6, d=7, g=16
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[6] q;
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+z q[2];
+h q[1];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+cz q[0], q[4];
+h q[3];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[3];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+z q[1];
+h q[1];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+z q[0];
+h q[1];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+
+
+// Circuit: n=6, h=2, d=2, g=4
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[6] q;
+h q[1];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+
+
+// Circuit: n=6, h=6, d=7, g=16
+OPENQASM 3.0;
+include "stdgates.inc";
+gate ccz _gate_q_0, _gate_q_1, _gate_q_2 {
+  h _gate_q_2;
+  ccx _gate_q_0, _gate_q_1, _gate_q_2;
+  h _gate_q_2;
+}
+qubit[6] q;
+h q[2];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+z q[4];
+z q[2];
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[3];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+cz q[3], q[0];
+ccz q[3], q[1], q[5];
+h q[4];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[2];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+
+
+// Circuit: n=6, h=6, d=8, g=15
+OPENQASM 3.0;
+include "stdgates.inc";
+gate ccz _gate_q_0, _gate_q_1, _gate_q_2 {
+  h _gate_q_2;
+  ccx _gate_q_0, _gate_q_1, _gate_q_2;
+  h _gate_q_2;
+}
+qubit[6] q;
+cz q[2], q[3];
+h q[2];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+ccz q[0], q[4], q[5];
+h q[4];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+z q[2];
+h q[0];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[0];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+h q[2];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+
+
+// Circuit: n=6, h=6, d=50, g=81
+OPENQASM 3.0;
+include "stdgates.inc";
+gate ccz _gate_q_0, _gate_q_1, _gate_q_2 {
+  h _gate_q_2;
+  ccx _gate_q_0, _gate_q_1, _gate_q_2;
+  h _gate_q_2;
+}
+qubit[6] q;
+ccz q[3], q[4], q[5];
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+cz q[1], q[2];
+cz q[2], q[5];
+z q[5];
+cz q[3], q[5];
+ccz q[0], q[1], q[3];
+cz q[4], q[2];
+ccz q[3], q[2], q[1];
+ccz q[0], q[1], q[3];
+cz q[5], q[0];
+z q[5];
+ccz q[0], q[5], q[4];
+z q[4];
+cz q[2], q[0];
+z q[4];
+z q[2];
+cz q[2], q[0];
+z q[0];
+z q[3];
+z q[4];
+cz q[5], q[4];
+cz q[3], q[4];
+ccz q[1], q[2], q[0];
+z q[0];
+z q[4];
+ccz q[5], q[3], q[2];
+z q[4];
+z q[1];
+ccz q[0], q[3], q[1];
+ccz q[5], q[1], q[3];
+z q[1];
+ccz q[1], q[5], q[3];
+h q[0];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+ccz q[2], q[0], q[5];
+z q[3];
+ccz q[5], q[4], q[2];
+ccz q[0], q[2], q[4];
+ccz q[5], q[2], q[4];
+ccz q[0], q[1], q[5];
+cz q[1], q[3];
+z q[0];
+z q[5];
+ccz q[5], q[3], q[0];
+cz q[2], q[0];
+cz q[2], q[0];
+z q[0];
+ccz q[1], q[2], q[5];
+cz q[2], q[0];
+ccz q[3], q[2], q[4];
+cz q[5], q[3];
+z q[1];
+cz q[3], q[5];
+cz q[3], q[4];
+ccz q[3], q[4], q[2];
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+cz q[4], q[1];
+z q[4];
+ccz q[1], q[5], q[2];
+ccz q[2], q[3], q[4];
+cz q[0], q[4];
+h q[3];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+z q[3];
+h q[4];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+z q[0];
+z q[4];
+ccz q[1], q[2], q[0];
+ccz q[4], q[5], q[2];
+z q[1];
+cz q[3], q[4];
+cz q[3], q[1];
+z q[0];
+cz q[3], q[1];
+ccz q[5], q[4], q[2];
+h q[3];
+barrier q[0], q[1], q[2], q[3], q[4], q[5];
+
+
+// Circuit: n=12, h=6, d=16, g=47
+OPENQASM 3.0;
+include "stdgates.inc";
+gate ccz _gate_q_0, _gate_q_1, _gate_q_2 {
+  h _gate_q_2;
+  ccx _gate_q_0, _gate_q_1, _gate_q_2;
+  h _gate_q_2;
+}
+qubit[12] q;
+cz q[3], q[7];
+ccz q[11], q[6], q[10];
+ccz q[5], q[8], q[10];
+z q[1];
+z q[1];
+cz q[0], q[10];
+h q[0];
+barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6], q[7], q[8], q[9], q[10], q[11];
+z q[4];
+h q[6];
+barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6], q[7], q[8], q[9], q[10], q[11];
+cz q[0], q[3];
+z q[5];
+h q[10];
+barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6], q[7], q[8], q[9], q[10], q[11];
+cz q[9], q[7];
+z q[8];
+z q[3];
+z q[3];
+ccz q[6], q[0], q[2];
+ccz q[7], q[10], q[0];
+z q[6];
+cz q[10], q[11];
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6], q[7], q[8], q[9], q[10], q[11];
+cz q[5], q[11];
+z q[3];
+z q[2];
+cz q[4], q[1];
+ccz q[1], q[2], q[11];
+z q[8];
+cz q[5], q[0];
+z q[1];
+cz q[1], q[9];
+z q[0];
+z q[10];
+z q[7];
+ccz q[3], q[5], q[9];
+z q[7];
+cz q[7], q[4];
+ccz q[10], q[11], q[9];
+h q[4];
+barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6], q[7], q[8], q[9], q[10], q[11];
+z q[7];
+z q[2];
+h q[8];
+barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6], q[7], q[8], q[9], q[10], q[11];
+
+
+// Circuit: n=7, h=6, d=54, g=105
+OPENQASM 3.0;
+include "stdgates.inc";
+gate ccz _gate_q_0, _gate_q_1, _gate_q_2 {
+  h _gate_q_2;
+  ccx _gate_q_0, _gate_q_1, _gate_q_2;
+  h _gate_q_2;
+}
+qubit[7] q;
+z q[1];
+ccz q[3], q[2], q[0];
+ccz q[1], q[2], q[0];
+cz q[1], q[6];
+cz q[4], q[3];
+z q[4];
+ccz q[1], q[3], q[2];
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6];
+ccz q[1], q[2], q[0];
+cz q[2], q[3];
+cz q[2], q[0];
+ccz q[1], q[6], q[0];
+ccz q[0], q[6], q[1];
+z q[1];
+ccz q[3], q[5], q[0];
+ccz q[0], q[3], q[4];
+ccz q[3], q[6], q[5];
+ccz q[0], q[5], q[6];
+z q[6];
+z q[2];
+cz q[1], q[3];
+z q[6];
+z q[5];
+cz q[0], q[6];
+z q[5];
+z q[5];
+z q[6];
+ccz q[0], q[3], q[5];
+cz q[1], q[0];
+h q[1];
+barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6];
+ccz q[3], q[5], q[0];
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6];
+ccz q[4], q[1], q[6];
+z q[0];
+z q[2];
+z q[5];
+z q[0];
+z q[2];
+z q[1];
+cz q[4], q[5];
+z q[2];
+cz q[5], q[3];
+z q[4];
+ccz q[6], q[1], q[3];
+z q[2];
+h q[6];
+barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6];
+ccz q[0], q[5], q[1];
+ccz q[5], q[1], q[3];
+cz q[2], q[6];
+cz q[4], q[3];
+z q[3];
+cz q[0], q[1];
+ccz q[1], q[4], q[3];
+cz q[2], q[5];
+z q[3];
+ccz q[5], q[4], q[0];
+ccz q[2], q[6], q[5];
+cz q[1], q[2];
+z q[0];
+z q[5];
+cz q[0], q[4];
+z q[5];
+z q[4];
+cz q[3], q[4];
+z q[0];
+cz q[3], q[4];
+cz q[0], q[1];
+ccz q[5], q[0], q[1];
+ccz q[6], q[1], q[0];
+cz q[4], q[2];
+z q[5];
+z q[4];
+ccz q[3], q[2], q[4];
+z q[1];
+ccz q[0], q[1], q[3];
+cz q[0], q[5];
+cz q[6], q[0];
+ccz q[0], q[6], q[5];
+z q[1];
+ccz q[5], q[0], q[4];
+ccz q[4], q[5], q[2];
+z q[5];
+ccz q[3], q[4], q[0];
+z q[2];
+cz q[2], q[3];
+z q[2];
+h q[6];
+barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6];
+z q[3];
+z q[6];
+cz q[4], q[3];
+z q[0];
+z q[4];
+cz q[5], q[2];
+z q[0];
+z q[1];
+cz q[3], q[2];
+ccz q[2], q[1], q[0];
+z q[6];
+h q[1];
+barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6];
+
+
+// Circuit: n=7, h=6, d=52, g=90
+OPENQASM 3.0;
+include "stdgates.inc";
+gate ccz _gate_q_0, _gate_q_1, _gate_q_2 {
+  h _gate_q_2;
+  ccx _gate_q_0, _gate_q_1, _gate_q_2;
+  h _gate_q_2;
+}
+qubit[7] q;
+ccz q[1], q[6], q[0];
+cz q[2], q[1];
+z q[2];
+z q[6];
+z q[4];
+ccz q[1], q[4], q[2];
+ccz q[3], q[4], q[1];
+z q[4];
+z q[6];
+z q[3];
+ccz q[1], q[4], q[0];
+z q[0];
+z q[0];
+ccz q[2], q[4], q[5];
+ccz q[4], q[2], q[3];
+cz q[0], q[5];
+cz q[0], q[5];
+h q[2];
+barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6];
+cz q[5], q[1];
+z q[5];
+cz q[6], q[4];
+z q[1];
+ccz q[6], q[4], q[0];
+cz q[0], q[6];
+z q[0];
+z q[3];
+cz q[3], q[4];
+z q[5];
+z q[0];
+ccz q[1], q[4], q[6];
+z q[5];
+ccz q[0], q[6], q[4];
+ccz q[5], q[3], q[1];
+cz q[3], q[0];
+h q[2];
+barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6];
+ccz q[2], q[1], q[6];
+ccz q[6], q[5], q[3];
+ccz q[6], q[2], q[5];
+cz q[0], q[2];
+z q[5];
+cz q[5], q[3];
+ccz q[4], q[0], q[6];
+cz q[0], q[6];
+ccz q[5], q[6], q[4];
+cz q[3], q[1];
+h q[6];
+barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6];
+ccz q[5], q[6], q[1];
+cz q[4], q[1];
+ccz q[5], q[1], q[3];
+z q[0];
+cz q[5], q[6];
+z q[6];
+cz q[5], q[6];
+ccz q[5], q[3], q[6];
+z q[4];
+ccz q[1], q[0], q[3];
+z q[4];
+cz q[3], q[1];
+h q[2];
+barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6];
+z q[2];
+ccz q[2], q[4], q[0];
+cz q[1], q[4];
+ccz q[5], q[6], q[3];
+ccz q[6], q[1], q[2];
+ccz q[3], q[6], q[1];
+ccz q[4], q[1], q[6];
+z q[5];
+cz q[1], q[5];
+z q[0];
+z q[3];
+z q[3];
+z q[3];
+cz q[5], q[3];
+cz q[0], q[1];
+z q[5];
+h q[2];
+barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6];
+ccz q[1], q[2], q[3];
+ccz q[0], q[2], q[3];
+cz q[0], q[5];
+cz q[0], q[2];
+ccz q[0], q[6], q[1];
+z q[6];
+ccz q[1], q[3], q[5];
+h q[5];
+barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6];
