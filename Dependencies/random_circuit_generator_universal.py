@@ -1,19 +1,20 @@
 """
 Utility functions for generating random circuits.
 ====== Some comments ======
-Gate set: {H, Z, CZ, CCZ}. This gate set is not universal.
+Gate set: {H, Z, T, Tdg, S, Sdg, CZ, CCZ}. This gate set is almost 
+universal but does not support arbitrary rotations yet.
 Barriers: Since barriers affect simulation or the transpilation of circuit
 in qiskit, we are not using barriers in our circuits.
 """
 
 import types, numpy as np
 from qiskit.circuit import QuantumCircuit, QuantumRegister
-from qiskit.circuit.library.standard_gates import (HGate, ZGate, CZGate, CCZGate)
+from qiskit.circuit.library.standard_gates import (HGate, ZGate, SGate, SdgGate, TGate, TdgGate, CZGate, CCZGate)
 
 def random_circ_params(seed):
     max_operands=3 # maximum operands of each gate (between 1 and 3)
 
-    one_q_ops = [HGate, ZGate] # don't change the order of gate entries
+    one_q_ops = [HGate, ZGate, SGate, SdgGate, TGate, TdgGate] # don't change the order of gate entries
     two_q_ops = CZGate
     three_q_ops = CCZGate
     if seed is None:
@@ -41,7 +42,7 @@ def random_circ_d_const(n: int, d: int, seed: int = None) -> tuple[QuantumCircui
     qc = QuantumCircuit(n)
 
     # to set equal probabilities of 1, 2, 3 qubit operands
-    prob_num_operands = [[1], [2/3, 1/3], [2/4, 1/4, 1/4]]
+    prob_num_operands = [[1], [6/7, 1/7], [6/8, 1/8, 1/8]]
     # apply arbitrary random operations at every depth
     for _ in range(d):
         # choose either 1, 2, or 3 qubits for the operation
@@ -81,6 +82,7 @@ def random_circ_g_const(n: int, g: int, seed:int = None) -> tuple[QuantumCircuit
         QuantumRegister: constructed quantum register
     """
     max_operands, one_q_ops, two_q_ops, three_q_ops, rng = random_circ_params(seed)
+    prob_num_operands = [[1], [6/7, 1/7], [6/8, 1/8, 1/8]]
 
     qr = QuantumRegister(n, 'q')
     qc = QuantumCircuit(n)
@@ -90,7 +92,7 @@ def random_circ_g_const(n: int, g: int, seed:int = None) -> tuple[QuantumCircuit
         remaining_qubits = list(range(n))
         while remaining_qubits:
             max_possible_operands = min(len(remaining_qubits), max_operands)
-            num_operands = rng.choice(range(max_possible_operands)) + 1
+            num_operands = rng.choice(range(max_possible_operands), p=prob_num_operands[max_possible_operands-1]) + 1
             
             rng.shuffle(remaining_qubits)
             operands = remaining_qubits[:num_operands]
@@ -115,18 +117,17 @@ def random_circ_g_const(n: int, g: int, seed:int = None) -> tuple[QuantumCircuit
     return qc, qr
 
 
-def random_circ_h_const(n: int, h: int, h_prob: float = 0.25, seed: int = None) -> tuple[QuantumCircuit, QuantumRegister]:
-    """
-    Generate random circuit of arbitrary size and form with constant number of H gates.
+def random_circ_h_const(n: int, h: int, h_prob: float = 0.125, seed: int = None) -> tuple[QuantumCircuit, QuantumRegister]:
+    """Generate random circuit of arbitrary size and form with constant number of H gates.
     
     Args:
         n (int): number of quantum wires/qubits
         h (int): number of H gates in the generated circuit
-        h_prob: Probability of selecting gate H out of all 4 gates
+        h_prob: Probability of selecting gate H out of all 8 gates
         seed (int): random seed (optional) --> set a value to get same circuit on each call
     Returns:
         QuantumCircuit: constructed circuit
-        QuantumRegister: constructed quantum register 
+        QuantumRegister: constructed quantum register
 
     We don't mind the depth!
     We use a little differnt method here. max_operand is fixed to 3.
@@ -139,13 +140,14 @@ def random_circ_h_const(n: int, h: int, h_prob: float = 0.25, seed: int = None) 
     qubits = list(range(n))
     while h_count > 0: # not incomplete, but might be done better to meet requirements
         # choosing num_operands solely based on given h_prob
-        num_operands = rng.choice(range(max_operands), p=[(1+2*h_prob)/3, (1-h_prob)/3, (1-h_prob)/3]) + 1
+        num_operands = rng.choice(range(max_operands), p=[(5+2*h_prob)/7, (1-h_prob)/7, (1-h_prob)/7]) + 1
 
         rng.shuffle(qubits)
         operands = qubits[:num_operands]
-
+        tmp = (1-h_prob)/(5+2*h_prob)
+        p_one_q_gates = [7*h_prob/(5+2*h_prob), tmp, tmp, tmp, tmp, tmp]
         if num_operands == 1:
-            operation = rng.choice(one_q_ops, p=[3*h_prob/(1+2*h_prob), (1-h_prob)/(1+2*h_prob)])
+            operation = rng.choice(one_q_ops, p=p_one_q_gates)
         elif num_operands == 2:
             operation = two_q_ops
         elif num_operands == 3:
@@ -158,7 +160,7 @@ def random_circ_h_const(n: int, h: int, h_prob: float = 0.25, seed: int = None) 
             # qc.barrier() # applying a barrier whenever an HGate is applied
     return qc, qr
 
-random_circ = types.SimpleNamespace(
+random_circ_uni = types.SimpleNamespace(
     d=random_circ_d_const,
     g=random_circ_g_const,
     h=random_circ_h_const
@@ -179,3 +181,4 @@ def gate_counts(qc:QuantumCircuit) -> int :
 # Or 
 def gate_counts(qc:QuantumCircuit) -> int :
     return sum(qc.count_ops().values())
+
