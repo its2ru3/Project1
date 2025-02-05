@@ -9248,3 +9248,53 @@ z q[6];
 ccz q[1], q[3], q[5];
 h q[5];
 barrier q[0], q[1], q[2], q[3], q[4], q[5], q[6];
+
+
+// Circuit: n=2, h=3, d=3, g=4
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[2] q;
+h q[0];
+h q[1];
+cz q[0], q[1];
+h q[1];
+
+
+// Circuit: n=2, h=3, d=3, g=4
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[2] q;
+h q[0];
+h q[1];
+cz q[0], q[1];
+h q[1];
+
+
+// Circuit: n=2, h=3, d=3, g=4
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[2] q;
+h q[0];
+h q[1];
+cz q[0], q[1];
+h q[1];
+
+
+// Circuit: n=2, h=3, d=3, g=4
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[2] q;
+h q[0];
+h q[1];
+cz q[0], q[1];
+h q[1];
+
+
+// Circuit: n=2, h=3, d=3, g=4
+OPENQASM 3.0;
+include "stdgates.inc";
+qubit[2] q;
+h q[0];
+h q[1];
+cz q[0], q[1];
+h q[1];

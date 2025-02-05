@@ -1,6 +1,6 @@
 ### Range of n, h, g, d for random circuits
 
-=== old ===
+====== OLD ======
 
 random_circuit_d_const ->
 n -> (1, 30)
@@ -24,7 +24,7 @@ d -> arbitrary
 For PolySim -> limit `h` to 25
 For DDSIM and Aer -> limit `n` to 25
 
-=== new ===
+====== NEW ======
 
 random_circuit_d_const ->
 n -> (1, 15)
