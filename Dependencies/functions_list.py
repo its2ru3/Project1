@@ -121,6 +121,7 @@ def get_statevector(ttb, n, t, ovs, starting_index=0):
     s = np.zeros(2**len(ovs),dtype=complex)
     # print(s)
     s_ldic = dict()
+    assert len(ttb) == 2**(t-n)
     for k in range(0, len(ttb)): # Going through each value
         t_val = ttb[k] # Check truth value for each element
         chosenbits = "".join([ ( bin(k)[2:].zfill(t) )[j] for j in ovs ]) #Choosing the variables which are corresponing to the output. 
@@ -138,8 +139,9 @@ def get_statevector(ttb, n, t, ovs, starting_index=0):
     print(s_ldic)
     for k in s_ldic:
         # Hardcoded the computation of FFT[1] of the array
-        # s_ldic[k] = (s_ldic[k][0] - s_ldic[k][4]) + (s_ldic[k][1] - s_ldic[k][5])/np.sqrt(2)- (s_ldic[k][3] - s_ldic[k][7])/np.sqrt(2) + (1j)*((s_ldic[k][2] - s_ldic[k][6]) + (s_ldic[k][1] - s_ldic[k][5])/np.sqrt(2)+ (s_ldic[k][3] - s_ldic[k][7])/np.sqrt(2) ) 
-        s_ldic[k] = (s_ldic[k][0] - s_ldic[k][4]) + np.sqrt(2)*(s_ldic[k][1] - s_ldic[k][5]) + (1j)*((s_ldic[k][2] - s_ldic[k][6]) - np.sqrt(2)*(s_ldic[k][3] - s_ldic[k][7]) ) 
+        tmp0 = (s_ldic[k][1] - s_ldic[k][5])/np.sqrt(2) 
+        tmp1 = (s_ldic[k][3] - s_ldic[k][7])/np.sqrt(2)
+        s_ldic[k] = (s_ldic[k][0] - s_ldic[k][4]) + tmp0- tmp1 + (1j)*( (s_ldic[k][2] - s_ldic[k][6]) + tmp0 + tmp1 ) 
         s[k] = s_ldic[k] 
 
     stvector = s / (2**0.5)**(t-n) # Normalization
