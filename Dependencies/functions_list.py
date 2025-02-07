@@ -14,7 +14,7 @@ n = number of qubits
 t = total number of variables in the equation
 max_new_var = name of the next new variable, set to n when no gate is applied. Variable names start from 0.
 d = depth of the circuit
-wire_array[q] = represents the variable name on qubit q
+wire_array[q] = represents the variable name on qubit q, only used to get ovs for now.
 term: array containing polynomial equation 
 [x0,x1,x(n-1)] = inital_state variables  
 
@@ -65,8 +65,8 @@ def create_poly(qc, n: int):
 
         elif gate == 'tdg':
             terms.append([7,[wire_array[j][-1] for j in qubits]]) #Weight for Tdg = 7 = (-1) mod 8
-
-    return terms, wire_array, max_new_var
+    t = max_new_var
+    return terms, wire_array, t
 
 
 # function to evaluate polynomial equation
@@ -83,8 +83,9 @@ def eval_f(terms,x):
         val_out = int(val_out + weight*int(v))%8 #Ensuring all operations are done modulo 8, as integer operations. 
     return val_out
 
-def truthtable(terms, n, t, initial_state):
-    if n==t:
+def get_truthtable(terms, n, t, initial_state):
+    # in case you don't handle this case yourself
+    if n == t: # the program won't come here, I am returning 0 state in main file
         state = "".join([str(int(i)) for i in initial_state])
         print(f"Statevector is: {state} with some global phase")
         return
