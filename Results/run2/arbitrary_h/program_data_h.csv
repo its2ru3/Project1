@@ -1,0 +1,6 @@
+n,h,d,g,t,cpu_time_poly,wall_time_poly,cpu_time_ddsim,wall_time_ddsim,cpu_time_aer,wall_time_aer
+3,1,69,119,4,0.0,0.0006494522094726562,0.010000000000000675,0.010732412338256836,0.009999999999999787,0.0029070377349853516
+n,h,d,g,t,cpu_time_poly,wall_time_poly,cpu_time_ddsim,wall_time_ddsim,cpu_time_aer,wall_time_aer
+3,1,10,18,4,0.0,0.00020742416381835938,0.009999999999999787,0.010025501251220703,0.0,0.0016367435455322266
+n,h,d,g,t,cpu_time_poly,wall_time_poly,cpu_time_ddsim,wall_time_ddsim,cpu_time_aer,wall_time_aer
+3,1,30,42,4,0.0,0.0002875328063964844,0.009999999999999787,0.01041412353515625,0.0,0.0015327930450439453

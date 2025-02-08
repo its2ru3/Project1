@@ -21,10 +21,10 @@ def random_circ_params(seed):
         seed = np.random.randint(0, np.iinfo(np.int32).max)
     rng = np.random.default_rng(seed)
 
-    return max_operands, one_q_ops, two_q_ops, three_q_ops, rng
+    return max_operands, one_q_ops, two_q_ops, three_q_ops, rng, seed
 
 
-def random_circ_d_const(n: int, d: int, seed: int = None) -> tuple[QuantumCircuit,QuantumRegister]:
+def random_circ_d_const(n: int, d: int, seed: int = None) -> tuple[QuantumCircuit,QuantumRegister, np.int32]:
     """Generate random circuit of arbitrary size and form of constant depth.
     
     Args:
@@ -36,7 +36,7 @@ def random_circ_d_const(n: int, d: int, seed: int = None) -> tuple[QuantumCircui
         QuantumRegister: constructed quantum register
     """
 
-    max_operands, one_q_ops, two_q_ops, three_q_ops, rng = random_circ_params(seed)
+    max_operands, one_q_ops, two_q_ops, three_q_ops, rng, seed = random_circ_params(seed)
 
     qr = QuantumRegister(n, 'q')
     qc = QuantumCircuit(n)
@@ -68,9 +68,9 @@ def random_circ_d_const(n: int, d: int, seed: int = None) -> tuple[QuantumCircui
             # qc.barrier()
         # qc.barrier()
 
-    return qc, qr
+    return qc, qr, seed
 
-def random_circ_g_const(n: int, g: int, seed:int = None) -> tuple[QuantumCircuit, QuantumRegister]:
+def random_circ_g_const(n: int, g: int, seed:int = None) -> tuple[QuantumCircuit, QuantumRegister, np.int32]:
     """Generate random circuit of arbitrary size and form of constant number of gates.
     
     Args:
@@ -81,7 +81,7 @@ def random_circ_g_const(n: int, g: int, seed:int = None) -> tuple[QuantumCircuit
         QuantumCircuit: constructed circuit
         QuantumRegister: constructed quantum register
     """
-    max_operands, one_q_ops, two_q_ops, three_q_ops, rng = random_circ_params(seed)
+    max_operands, one_q_ops, two_q_ops, three_q_ops, rng, seed = random_circ_params(seed)
     prob_num_operands = [[1], [6/7, 1/7], [6/8, 1/8, 1/8]]
 
     qr = QuantumRegister(n, 'q')
@@ -114,10 +114,10 @@ def random_circ_g_const(n: int, g: int, seed:int = None) -> tuple[QuantumCircuit
             
             # qc.barrier()
         # qc.barrier()
-    return qc, qr
+    return qc, qr, seed
 
 
-def random_circ_h_const(n: int, h: int, h_prob: float = 0.125, seed: int = None) -> tuple[QuantumCircuit, QuantumRegister]:
+def random_circ_h_const(n: int, h: int, h_prob: float = 0.125, seed: int = None) -> tuple[QuantumCircuit, QuantumRegister, np.int32]:
     """Generate random circuit of arbitrary size and form with constant number of H gates.
     
     Args:
@@ -132,7 +132,7 @@ def random_circ_h_const(n: int, h: int, h_prob: float = 0.125, seed: int = None)
     We don't mind the depth!
     We use a little differnt method here. max_operand is fixed to 3.
     """
-    max_operands, one_q_ops, two_q_ops, three_q_ops, rng = random_circ_params(seed)
+    max_operands, one_q_ops, two_q_ops, three_q_ops, rng, seed = random_circ_params(seed)
 
     qr = QuantumRegister(n, 'q')
     qc = QuantumCircuit(n)
@@ -158,7 +158,7 @@ def random_circ_h_const(n: int, h: int, h_prob: float = 0.125, seed: int = None)
         if operation == HGate:
             h_count -= 1
             # qc.barrier() # applying a barrier whenever an HGate is applied
-    return qc, qr
+    return qc, qr, seed
 
 random_circ_uni = types.SimpleNamespace(
     d=random_circ_d_const,
