@@ -31,7 +31,7 @@ def create_poly(qc, n: int):
                     for index, instruction in enumerate(qc.data)]
 
     wire_array = [[i] for i in range(n)]
-    print("Initial wire_array: ",wire_array) 
+    # print("Initial wire_array: ",wire_array) 
     max_new_var = n 
     terms = [] 
     # Each term now also holds a weight, alongside the index of each variable in our polynomial. In form: [weight,[*vars]]
@@ -87,11 +87,11 @@ def get_truthtable(terms, n, t, initial_state):
     # in case you don't handle this case yourself
     if n == t: # the program won't come here, I am returning 0 state in main file
         state = "".join([str(int(i)) for i in initial_state])
-        print(f"Statevector is: {state} with some global phase")
+        # print(f"Statevector is: {state} with some global phase")
         return
     # x_range = number of x values possible, given initial_state
     x_range = 2**(t-n) 
-    print(x_range)
+    # print(x_range)
     """
     Size of truth table, i.e. len(group_size) and len(x_range), is 2**(t-n) because 
     we only have to check for the variables other than the input varialbes becasue 
@@ -121,22 +121,24 @@ def get_statevector(ttb, n, t, ovs, starting_index=0):
     s = np.zeros(2**len(ovs),dtype=complex)
     # print(s)
     s_ldic = dict()
-    assert len(ttb) == 2**(t-n)
+    # assert len(ttb) == 2**(t-n)
     for k in range(0, len(ttb)): # Going through each value
         t_val = ttb[k] # Check truth value for each element
         chosenbits = "".join([ ( bin(k)[2:].zfill(t) )[j] for j in ovs ]) #Choosing the variables which are corresponing to the output. 
         chosen_int = int(chosenbits,2) # Integer value corresponding to chosen variables.  
         # print(k, bin(k)[2:].zfill(t), chosenbits, chosen_int)
+        
         # try: s_ldic[chosen_int][t_val] += 1 
         # except KeyError: 
         #     s_ldic[chosen_int] = np.array([0,0,0,0,0,0,0,0])
         #     s_ldic[chosen_int][t_val] += 1
+        # OR 
         if chosen_int not in s_ldic: # !!!!!!! This line is very costly !!!!!!!!!!!
             s_ldic[chosen_int] = np.array([0,0,0,0,0,0,0,0]) 
             # If the chosen variables have not been chosen before, 
             # define a new element corresponding to that combo and then update the array
         s_ldic[chosen_int][t_val] += 1 #If array has been created already, just update it
-    print(s_ldic)
+    # print(s_ldic)
     for k in s_ldic:
         # Hardcoded the computation of FFT[1] of the array
         tmp0 = (s_ldic[k][1] - s_ldic[k][5])/np.sqrt(2) 

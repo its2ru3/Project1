@@ -1,6 +1,6 @@
 ### Range of n, h, g, d for random circuits
 
-====== OLD ======
+====== NEW ======
 
 random_circuit_d_const ->
 n -> (1, 30)
@@ -15,35 +15,19 @@ d -> arbitrary
 h -> arbitrary
 
 random_circuit_h_const ->
-n -> (1, 30)
-h -> (1, 30)
+n -> (3, 100)
+h -> (1, 100)
 g -> arbitrary
 d -> arbitrary
-
 
 For PolySim -> limit `h` to 25
 For DDSIM and Aer -> limit `n` to 25
 
-====== NEW ======
 
-random_circuit_d_const ->
-n -> (1, 15)
-d -> (1, 15)
-g -> arbitrary
-h -> arbitrary
+====== h_prob ======
 
-random_circuit_g_const ->
-n -> (1, 15)
-g -> (1, 300)
-d -> arbitrary
-h -> arbitrary
+The probability of encountering an H gate in a random quantum circuit could range from 10% to 30% depending on the algorithm and its complexity.
+    Lower bound (10%): In algorithms focused more on error correction or where other gates are more frequent.
+    Upper bound (30%): In algorithms like Grover’s and Shor’s where the H gate plays a central role.
 
-random_circuit_h_const ->
-n -> (1, 15)
-h -> (1, 15)
-g -> arbitrary
-d -> arbitrary
-
-
-For PolySim -> limit `h` to 15
-For DDSIM and Aer -> limit `n` to 15
+We will run the benchmark with range 5% to 40% with step size of 2.5%. That is 15 steps.
