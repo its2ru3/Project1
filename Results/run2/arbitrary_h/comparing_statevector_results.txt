@@ -1,3 +1,0 @@
-Mismatch found in circuit: qc_qasm3_n3_h1_h_prob0.05.qasm3
-Mismatch in stvec_aer at index 0 and stvec_poly (reversed index 0)
-

@@ -143,7 +143,7 @@ def get_statevector(ttb, n, t, ovs, starting_index=0):
         # Hardcoded the computation of FFT[1] of the array
         tmp0 = (s_ldic[k][1] - s_ldic[k][5])/np.sqrt(2) 
         tmp1 = (s_ldic[k][3] - s_ldic[k][7])/np.sqrt(2)
-        s_ldic[k] = (s_ldic[k][0] - s_ldic[k][4]) + tmp0- tmp1 + (1j)*( (s_ldic[k][2] - s_ldic[k][6]) + tmp0 + tmp1 ) 
+        s_ldic[k] = (s_ldic[k][0] - s_ldic[k][4]) + tmp0 - tmp1 + (1j)*( (s_ldic[k][2] - s_ldic[k][6]) + tmp0 + tmp1 ) 
         s[k] = s_ldic[k] 
 
     stvector = s / (2**0.5)**(t-n) # Normalization
