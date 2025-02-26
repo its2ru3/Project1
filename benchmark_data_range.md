@@ -31,3 +31,9 @@ The probability of encountering an H gate in a random quantum circuit could rang
     Upper bound (30%): In algorithms like Grover’s and Shor’s where the H gate plays a central role.
 
 We will run the benchmark with range 5% to 40% with step size of 2.5%. That is 15 steps.
+
+
+
+### Benchmark assumptions
+1. initial condition is assumed to be state zero. If any other state is given then we can simply add X gates on corresponding qubits. But new_poly won't work in this case.
+2. 
