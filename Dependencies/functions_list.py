@@ -100,7 +100,7 @@ def get_truthtable(terms, n, t, initial_state):
     """
 
     # let's calculate the time of getting ttb 
-    start = time.time()
+    # start = time.time()
 
     ttb = np.empty(x_range, dtype=np.uint8) # tt will store value in range [0,7]
     # x = x0 x1 x2 x3 x4 ...
@@ -114,11 +114,11 @@ def get_truthtable(terms, n, t, initial_state):
         # filling other varibles value
         y_bin = bin(i)[2:].zfill(t-n)
         # print(y_bin)
-        start_inner_loop = time.time()
+        # start_inner_loop = time.time()
         for ind, val in enumerate(y_bin):
             x[n+ind] = bool(int(val))
         # print(f"Time to run the inner loop once is: {time.time() - start_inner_loop}")
-        start_eval_f = time.time()
+        # start_eval_f = time.time()
         ttb[i] = eval_f(terms,x,n) # terms is a big array, it should be given as a reference
         # print(f"Time to run eval_f once is: {time.time() - start_eval_f}")
     
