@@ -1,0 +1,12 @@
+digraph "DD" {graph[];node[shape=plain];edge[arrowhead=none]
+root [label="",shape=point,style=invis]
+t [label=<<font point-size="20">1</font>>,shape=box,tooltip="1",width=0.3,height=0.3]
+root->71792[penwidth="3",tooltip="1",color="0.000 0.667 0.750",label=<<font point-size="8">&nbsp;1</font>>]
+71792[label=<<font point-size="8"><table border="1" cellspacing="0" cellpadding="0" style="rounded"><tr><td colspan="2" border="0" cellpadding="1"><font point-size="20">q<sub><font point-size="12">2</font></sub></font></td></tr><tr><td height="6" width="14" port="0" tooltip="1/√2" href="javascript:;" sides="RT"><font color="white">&nbsp;0 </font></td><td height="6" width="14" port="1" tooltip="1/√2" href="javascript:;" sides="LT"><font color="white">&nbsp;0 </font></td></tr></table></font>>,tooltip="q2"]
+71792:1:se->71728[penwidth="2.12132",tooltip="1/√2" color="0.000 0.667 0.750",label=<<font point-size="8">&nbsp;1/√2</font>>]
+71792:0:sw->71728[penwidth="2.12132",tooltip="1/√2" color="0.000 0.667 0.750",label=<<font point-size="8">&nbsp;1/√2</font>>]
+71728[label=<<font point-size="8"><table border="1" cellspacing="0" cellpadding="0" style="rounded"><tr><td colspan="2" border="0" cellpadding="1"><font point-size="20">q<sub><font point-size="12">1</font></sub></font></td></tr><tr><td height="6" width="14" port="0" tooltip="1" href="javascript:;" sides="RT"><font color="white">&nbsp;0 </font></td><td height="6" width="14" port="1" tooltip="0" href="javascript:;" sides="LT">&nbsp;0 </td></tr></table></font>>,tooltip="q1"]
+71728:0:sw->71696[penwidth="3",tooltip="1" color="0.000 0.667 0.750",label=<<font point-size="8">&nbsp;1</font>>]
+71696[label=<<font point-size="8"><table border="1" cellspacing="0" cellpadding="0" style="rounded"><tr><td colspan="2" border="0" cellpadding="1"><font point-size="20">q<sub><font point-size="12">0</font></sub></font></td></tr><tr><td height="6" width="14" port="0" tooltip="1" href="javascript:;" sides="RT"><font color="white">&nbsp;0 </font></td><td height="6" width="14" port="1" tooltip="0" href="javascript:;" sides="LT">&nbsp;0 </td></tr></table></font>>,tooltip="q0"]
+71696:0:sw->t[penwidth="3",tooltip="1" color="0.000 0.667 0.750",label=<<font point-size="8">&nbsp;1</font>>]
+}
