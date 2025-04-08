@@ -1,14 +1,14 @@
 #include <pybind11/pybind11.h>
 
 namespace py = pybind11;
-
+// using namespace std;
 #include <iostream>
 #include <vector>
 #include <bitset>
 #include <cmath>
 #include <complex>
 #include <unordered_map>
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
 
 typedef std::complex<double> Complex;
 const int MAX_T = 64;  // Adjust to the maximum number of variables you will use
@@ -34,7 +34,7 @@ int eval_f(const std::vector<std::pair<int, std::vector<int>>>& terms, const boo
 }
 
 // Function to get the truth table
-void get_truthtable(const std::vector<std::pair<int, std::vector<int>>>& terms, int n, int t, const bool* initial_state, uint8_t* ttb) {
+void get_truthtable(const std::vector<std::pair<int, std::vector<int>>>& terms, int n, int t, const bool* initial_state, int* ttb) {
     if (n == t) {
         return;  // Base case (statevector handling)
     }
@@ -61,7 +61,7 @@ void get_truthtable(const std::vector<std::pair<int, std::vector<int>>>& terms, 
 }
 
 // Function to get the statevector from the truth table
-void get_statevector(const uint8_t* ttb, int n, int t, const std::vector<int>& ovs, Complex* stvector) {
+void get_statevector(const int* ttb, int n, int t, const std::vector<int>& ovs, Complex* stvector) {
     int group_size = 1 << (t - n);  // Size of the truth table
     std::unordered_map<int, std::vector<int>> s_ldic;
 
@@ -101,6 +101,13 @@ void get_statevector(const uint8_t* ttb, int n, int t, const std::vector<int>& o
     }
 }
 
+
+PYBIND11_MODULE(example, m) {
+    m.def("add", &get_truthtable, "A function that adds two numbers");
+}
+
+
+
 int main() {
     // Example usage
     std::vector<std::pair<int, std::vector<int>>> terms = {
@@ -111,7 +118,7 @@ int main() {
     bool initial_state[MAX_T] = {true, false, true};  // Example boolean vector
 
     int n = 2, t = 3;  // n = number of fixed variables, t = total number of variables
-    uint8_t ttb[1 << (t - n)];  // Truth table
+    int ttb[1 << (t - n)];  // Truth table
 
     // Generate truth table
     get_truthtable(terms, n, t, initial_state, ttb);
@@ -133,5 +140,3 @@ int main() {
 
     return 0;
 }
-
-
