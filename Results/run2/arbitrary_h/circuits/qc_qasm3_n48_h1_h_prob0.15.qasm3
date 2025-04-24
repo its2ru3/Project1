@@ -1,0 +1,20 @@
+The seed for the random circuit generator is: 129353225
+OPENQASM 3.0;
+include "stdgates.inc";
+gate ccz _gate_q_0, _gate_q_1, _gate_q_2 {
+  h _gate_q_2;
+  ccx _gate_q_0, _gate_q_1, _gate_q_2;
+  h _gate_q_2;
+}
+qubit[48] q;
+z q[5];
+tdg q[28];
+tdg q[7];
+tdg q[40];
+cz q[33], q[19];
+z q[22];
+cz q[29], q[3];
+ccz q[22], q[5], q[1];
+ccz q[45], q[17], q[39];
+z q[11];
+h q[25];

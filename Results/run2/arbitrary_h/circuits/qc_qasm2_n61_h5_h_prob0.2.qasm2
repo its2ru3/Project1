@@ -1,0 +1,16 @@
+The seed for the random circuit generator is: 168215577
+OPENQASM 2.0;
+include "qelib1.inc";
+qreg q[61];
+tdg q[40];
+z q[22];
+z q[51];
+s q[48];
+s q[54];
+h q[58];
+h q[21];
+z q[58];
+h q[21];
+h q[21];
+cz q[37],q[19];
+h q[56];
